@@ -21,11 +21,6 @@
 @property(readonly, nonatomic) NSSet *allVideoURLs;
 @end
 
-@interface IGMedia : NSObject
-@property(readonly) IGVideo *video;
-@property long long likeCount;
-@end
-
 @interface IGFeedItem : NSObject
 @property long long likeCount;
 @property(readonly) IGVideo *video;
@@ -35,20 +30,6 @@
 
 @interface IGImageView : UIImageView
 @property(retain, nonatomic) IGImageSpecifier *imageSpecifier;
-- (void)addHandleLongPress; // new
-- (void)handleLongPress:(UILongPressGestureRecognizer *)sender; // new
-@end
-
-@interface IGFeedItemMediaCell : UICollectionViewCell
-@property(retain, nonatomic) IGMedia *post;
-@end
-
-@interface IGModernFeedVideoCell : IGFeedItemMediaCell
-- (void)addHandleLongPress; // new
-- (void)handleLongPress:(UILongPressGestureRecognizer *)sender; // new
-@end
-
-@interface IGPanavisionFeedVideoCell : IGFeedItemMediaCell
 - (void)addHandleLongPress; // new
 - (void)handleLongPress:(UILongPressGestureRecognizer *)sender; // new
 @end
@@ -147,12 +128,12 @@
 @property(readonly, nonatomic) IGUser *user;
 @end
 
-@interface IGWindow : UIWindow
+@interface IGShakeWindow : UIWindow
 @property(nonatomic) __weak IGUserSession *userSession;
 @end
 
-@interface IGShakeWindow : UIWindow
-@property(nonatomic) __weak IGUserSession *userSession;
+@interface IGMedia : NSObject
+@property long long likeCount;
 @end
 
 @interface IGStyledString : NSObject
